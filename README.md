@@ -124,3 +124,10 @@ Subfind, pyLensLib
 
 difference between simulation and obs.
 how to model matters.
+
+
+## produce images
+- use generate_lens_mass.py to select sources
+- use lenstool to find images
+  - change prior
+  - generate using pylenslib
