@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 true_r_cut = 38.39/4.9213  # we need to calculate D_L for conversion from kpc to arcsecond
 true_sigma = 282.28
 
-folder_name = '20250218'
+folder_name = '20250220_2_withscatter_lenstool'
 
 figure = plt.figure(figsize=(8,8))
 # fig_sigma, axes_sigma = plt.subplots(3,1,constrained_layout=True)
