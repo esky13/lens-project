@@ -7,11 +7,11 @@ import string
 
 cluster_name = 'RXJ2248'
 
-df = lst.create_deflector(f'/home/lyumx/work/lens-data/{cluster_name}/origin_data/best.par',
-                          filex=f'/home/lyumx/work/lens-data/{cluster_name}/origin_data/{cluster_name}_angx.fits',
-                          filey=f'/home/lyumx/work/lens-data/{cluster_name}/origin_data/{cluster_name}_angy.fits')
+df = lst.create_deflector(f'/home/lmx/work/lens-data/{cluster_name}/origin_data/best.par',
+                          filex=f'/home/lmx/work/lens-data/{cluster_name}/origin_data/{cluster_name}_angx.fits',
+                          filey=f'/home/lmx/work/lens-data/{cluster_name}/origin_data/{cluster_name}_angy.fits')
 
-fov = lst.getFoV(f'/home/lyumx/work/lens-data/{cluster_name}/origin_data/best.par')
+fov = lst.getFoV(f'/home/lmx/work/lens-data/{cluster_name}/origin_data/best.par')
 
 tl = df.tancl()
 cl = df.getCaustics(tl)
@@ -40,7 +40,7 @@ kwargs = {
 ps_imgx_lst = []
 ps_imgy_lst = []
 
-ref_RA, ref_DEC = lst.getRef_RA_DEC(f'/home/lyumx/work/lens-data/{cluster_name}/origin_data/best.par')  
+ref_RA, ref_DEC = lst.getRef_RA_DEC(f'/home/lmx/work/lens-data/{cluster_name}/origin_data/best.par')  
 with open(f'../lens-data/{cluster_name}/generate_origin_sources/obs_arcs.dat',"r") as image_file:
     current_group = 1
     xi = []
@@ -91,5 +91,5 @@ cmap = plt.get_cmap('plasma')
 for i, (xi,yi) in enumerate(zip(ps_x_lst,ps_y_lst)):
     ax.plot(xi,yi,'o',color=cmap(i/len(ps_x_lst)),markersize=3)
     plt.text(xi, yi, f'{i}', fontsize=8, ha='right', color='b')
-plt.savefig('/home/lyumx/work/lens-project/lensing-image.png')
+plt.savefig('/home/lmx/work/lens-project/lensing-image.png')
  

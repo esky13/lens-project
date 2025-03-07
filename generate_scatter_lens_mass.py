@@ -13,6 +13,11 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 VISUALIZE_SCATTER = 0
 
+###############################
+# generate scattered lens mass
+# select sources based on the mass calculated by PyLensLib
+###############################
+
 # update the caustic and critics according to the new z source
 def update_zs():
     try:

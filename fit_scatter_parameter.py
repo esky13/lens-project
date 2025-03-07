@@ -3,11 +3,15 @@ from pyLensLib import lenstool as lst
 import numpy as np
 import matplotlib.pyplot as plt
 
-VISUALIZATION = False
+######################
+# fit the dispersion relation parameter of galaxies from scatter.par
+######################
+VISUALIZATION = True
 
 cluster_name = 'RXJ2248'
+data_name = '20250223_withscatter_lenstool'
 # read galaxy and cluster information from this file.
-filename = f'/home/lyumx/work/lens-data/{cluster_name}/with_prior/20250220_withscatter_lenstool/scatter.par'
+filename = f'/home/lmx/work/lens-data/{cluster_name}/with_prior/{data_name}/scatter.par'
 
 co = lst.getCosmo(filename)
 df = lst.getClMembers(filename)
@@ -35,7 +39,7 @@ for i in range(len(df)):
     rcore.append(gal.core_radius)
 
 # read magnitude from members.cat
-with open(f'/home/lyumx/work/lens-data/{cluster_name}/members.cat',"r") as f:
+with open(f'/home/lmx/work/lens-data/{cluster_name}/members.cat',"r") as f:
     lines = f.readlines()
     for line in lines[1:]:
         numbers = line.strip().split()
@@ -52,13 +56,14 @@ if VISUALIZATION:
     plt.plot(l_line,sigma0*10**(0.4*(m0-l_line)/vdslope))
     plt.xlabel('magnitude')
     plt.ylabel('velocity dispersion (km/s)')
-    plt.show()
+    plt.savefig(f'./scattered_vd_{data_name}.png')
 
     fig,ax = plt.subplots(1,1,figsize=(10,10))
     plt.scatter(l,r)
     plt.plot(l_line,rcut0*10**(0.4*(m0-l_line)*2/slope))
     plt.xlabel('magnitude')
     plt.ylabel('cut radius (arcsec)')
+    plt.savefig(f'./scattered_rcut_{data_name}.png')
     plt.show()
 
 # fit slope sigma0
